@@ -30,7 +30,7 @@ public static class StringsTemplatingExtension
     /// </returns>
     /// <exception cref="ArgumentException">Thrown when <paramref name="templateText"/> is null, empty, or whitespace.</exception>
     /// <exception cref="InvalidOperationException">Thrown if the template cannot be parsed due to syntax errors.</exception>
-    public static ValueTask<string> Render(string templateText, Dictionary<string, object>? replacements, Dictionary<string, string>? partials = null)
+    public static ValueTask<string> Render(this string templateText, Dictionary<string, object>? replacements, Dictionary<string, string>? partials = null)
     {
         if (templateText.IsNullOrWhiteSpace())
             throw new ArgumentException("Template string is required", nameof(templateText));
