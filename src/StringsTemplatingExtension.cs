@@ -1,4 +1,4 @@
-﻿using Scriban;
+using Scriban;
 using Scriban.Runtime;
 using Soenneker.Extensions.String;
 using System;
@@ -47,7 +47,29 @@ public static class StringsTemplatingExtension
             Template? t = Template.Parse(text);
 
             if (t.HasErrors)
-                throw new InvalidOperationException($"Template parse errors: {string.Join(", ", t.Messages)}");
+            {
+                // Avoid LINQ allocation from string.Join - use manual concatenation
+                var errorMessages = new List<string>(t.Messages.Count);
+                foreach (var msg in t.Messages)
+                {
+                    errorMessages.Add(msg.ToString());
+                }
+                
+                // Manual join to avoid string.Join overhead
+                if (errorMessages.Count == 0)
+                {
+                    throw new InvalidOperationException("Template parse errors");
+                }
+                
+                var sb = new System.Text.StringBuilder("Template parse errors: ");
+                for (int i = 0; i < errorMessages.Count; i++)
+                {
+                    if (i > 0)
+                        sb.Append(", ");
+                    sb.Append(errorMessages[i]);
+                }
+                throw new InvalidOperationException(sb.ToString());
+            }
 
             return t;
         });
