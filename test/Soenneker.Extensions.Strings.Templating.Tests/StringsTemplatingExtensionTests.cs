@@ -1,11 +1,10 @@
-﻿using Soenneker.Tests.Unit;
-using Xunit;
+using Soenneker.Tests.Unit;
 
 namespace Soenneker.Extensions.Strings.Templating.Tests;
 
 public sealed class StringsTemplatingExtensionTests : UnitTest
 {
-    [Fact]
+    [Test]
     public void Default()
     {
 
