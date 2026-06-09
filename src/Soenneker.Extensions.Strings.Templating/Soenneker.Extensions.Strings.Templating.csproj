@@ -46,6 +46,6 @@
     <ItemGroup>
         <PackageReference Include="Scriban" Version="7.2.4" />
         <PackageReference Include="Soenneker.Dictionaries.Concurrent.AutoClearing" Version="4.0.58" />
-        <PackageReference Include="Soenneker.Extensions.String" Version="4.0.684" />
+        <PackageReference Include="Soenneker.Extensions.String" Version="4.0.685" />
     </ItemGroup>
 </Project>
