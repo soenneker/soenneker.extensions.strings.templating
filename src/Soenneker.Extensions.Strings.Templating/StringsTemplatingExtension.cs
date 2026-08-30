@@ -21,13 +21,13 @@ public static class StringsTemplatingExtension
     /// Renders the specified template string using the provided replacement values and optional partial templates.
     /// </summary>
     /// <remarks>This method uses a cache to improve performance when rendering the same template multiple
-    /// times. Placeholders in the template are replaced with values from the replacements dictionary. If partials are
-    /// provided, they can be referenced within the template by name.</remarks>
+    /// times. Dictionary entries are exposed as read-only global values. Entries in <paramref name="partials"/> are
+    /// string-valued globals; they are not registered with a Scriban template loader.</remarks>
     /// <param name="templateText">The template string to render. Cannot be null, empty, or consist only of white-space characters.</param>
     /// <param name="replacements">A dictionary containing key-value pairs to replace placeholders in the template. Keys represent placeholder
     /// names; values are the corresponding replacement values. Can be null if no replacements are needed.</param>
-    /// <param name="partials">An optional dictionary of partial template names and their corresponding template strings. Used to resolve
-    /// partials referenced within the main template. Can be null if no partials are required.</param>
+    /// <param name="partials">An optional dictionary of string-valued globals. Keys must not duplicate keys in
+    /// <paramref name="replacements"/>. This does not configure Scriban include resolution.</param>
     /// <returns>A task that represents the asynchronous rendering operation. The task result contains the rendered template as a
     /// string.</returns>
     /// <exception cref="ArgumentException">Thrown if templateText is null, empty, or consists only of white-space characters.</exception>
