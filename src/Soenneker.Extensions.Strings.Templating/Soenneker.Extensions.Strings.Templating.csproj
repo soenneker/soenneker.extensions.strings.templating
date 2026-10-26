@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net10.0</TargetFramework>
+        <TargetFramework>net11.0</TargetFramework>
         <IsAotCompatible>true</IsAotCompatible>
         <Nullable>enable</Nullable>
         <Platforms>AnyCPU</Platforms>
@@ -9,7 +9,7 @@
 
     <PropertyGroup>
         <Description>A .NET extension library for string replacement and template rendering</Description>
-        <Version Condition="'$(BUILD_VERSION)' == ''">4.0.0</Version>
+        <Version Condition="'$(BUILD_VERSION)' == ''">11.0.0</Version>
         <Version Condition="'$(BUILD_VERSION)' != ''">$(BUILD_VERSION)</Version>
         <AssemblyName>Soenneker.Extensions.Strings.Templating</AssemblyName>
         <PackageId>Soenneker.Extensions.Strings.Templating</PackageId>
@@ -47,6 +47,6 @@
     <ItemGroup>
         <PackageReference Include="Scriban" Version="7.5.3" />
         <PackageReference Include="Soenneker.Dictionaries.Concurrent.AutoClearing" Version="4.0.105" />
-        <PackageReference Include="Soenneker.Extensions.String" Version="4.0.799" />
+        <PackageReference Include="Soenneker.Extensions.String" Version="4.0.800" />
     </ItemGroup>
 </Project>
